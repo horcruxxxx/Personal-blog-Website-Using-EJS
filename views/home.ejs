@@ -1,0 +1,16 @@
+<%- include("partials/header") -%>
+<h1>Home</h1>
+<p1><%= para1 %></p1>
+
+<!-- <% for(var i=0;i<list.length;i++){ %>
+    <h1><%= list[i].title %></h1>
+    <p1><%= list[i].para %></p1>
+<% } %> -->
+
+<!-- we are using FOREACH loop to achieve the same output -->
+<% list.forEach(function(it){ %>
+    <h1><%= it.title %></h1>
+    <p1><%= it.para %></p1>
+<% }) %>
+
+<%- include("partials/footer") -%>
