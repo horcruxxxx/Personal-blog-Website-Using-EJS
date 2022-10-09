@@ -3,7 +3,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const { result } = require("lodash");
+const _ = require('lodash'); 
+// const { result } = require("lodash");
 
 var blogs = [];
 // var paras  = [];
@@ -62,8 +63,13 @@ app.post("/compose",function(req,res){
 app.get("/posts/:name",function(req,res){
   const temp = req.params.name;
   for(var i=0;i<blogs.length;i++){{
-    if(blogs[i].title===temp){
-      console.log("Match Found");
+    if(_.lowerCase(blogs[i].title)===_.lowerCase(temp)){
+      const elem = {
+        head:blogs[i].title,
+        rem:blogs[i].para
+      };
+      res.render("post",{title:elem});
+      // This is how we can create dynamic web pages using ejs & Routing parameters.
     }
   }}
 });

@@ -10,7 +10,8 @@
 <!-- we are using FOREACH loop to achieve the same output -->
 <% list.forEach(function(it){ %>
     <h1><%= it.title %></h1>
-    <p1><%= it.para %></p1>
+    <p1><%= it.para.substring(0,100) + "..." %></p1>
+    <a href="/posts/<%=it.title%>">Read More</a>
 <% }) %>
 
 <%- include("partials/footer") -%>
