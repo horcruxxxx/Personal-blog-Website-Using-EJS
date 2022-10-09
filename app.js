@@ -58,8 +58,15 @@ app.post("/compose",function(req,res){
 
 
 
-
-
+// we can  make dynamic parameters using ROUTING PARAMETERS by EXPRESS.
+app.get("/posts/:name",function(req,res){
+  const temp = req.params.name;
+  for(var i=0;i<blogs.length;i++){{
+    if(blogs[i].title===temp){
+      console.log("Match Found");
+    }
+  }}
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
